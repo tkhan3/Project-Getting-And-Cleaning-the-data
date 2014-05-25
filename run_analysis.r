@@ -1,5 +1,5 @@
 ## Reading the activity labels file and adding names to the column. There are two columns in the file representing activity id and activity name.
-activity_labels <- read.table("C:/mygit/datasciencecoursera/Getting And Cleaning the Data/Week3/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/activity_labels.txt",header=F)
+activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt",header=F)
 nrow(activity_labels)
 names(activity_labels) <- c("activity_id","activity_names")
 attributes(activity_labels)
@@ -8,7 +8,7 @@ names(activity_labels)
 
 ### Reading the training labels for training data. Data set contains information about labelling activity to each obervation i.e. observation was taken for walking or for standing etc. There is one column in the file. Added name to the column name as activity id.
 
-observation_activity <- read.table("C:/mygit/datasciencecoursera/Getting And Cleaning the Data/Week3/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/y_train.txt",header=F)
+observation_activity <- read.table("./UCI HAR Dataset/train/y_train.txt",header=F)
 dim(observation_activity)
 names(observation_activity) <- c("activity_id")
 
@@ -18,11 +18,11 @@ observation_activity_labels <- join(observation_activity,activity_labels,type="i
 names(observation_activity_labels) <- c("activity_id","activity_name")
 
 ## Read the subject_train file for Training Data. This file contains the information which subject has performed the activity. This file relates observation with the subject. This file contains information that which observation was taken for which subject.
-subject_observation <- read.table("C:/mygit/datasciencecoursera/Getting And Cleaning the Data/Week3/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt",header=F)
+subject_observation <- read.table("./UCI HAR Dataset/train/subject_train.txt",header=F)
 names(subject_observation) <- c("subject_id")
 
 ### Reading the training labels for test data. Data set contains information about labelling activity to each obervation i.e. observation was taken for walking or for standing etc. There is one column in the file. Added name to the column name as activity id.
-observation_activity_test <- read.table("C:/mygit/datasciencecoursera/Getting And Cleaning the Data/Week3/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt",header=F)
+observation_activity_test <- read.table("./UCI HAR Dataset/test/y_test.txt",header=F)
 dim(observation_activity_test)
 names(observation_activity_test) <- c("activity_id")
 
@@ -32,11 +32,11 @@ observation_activity_labels_test <- join(observation_activity_test,activity_labe
 names(observation_activity_labels_test) <- c("activity_id","activity_name")
 
 ## Read the subject_train file for Training Data. This file contains the information which subject has performed the activity. This file relates observation with the subject. This file contains information that which observation was taken for which subject.
-subject_observation_test <- read.table("C:/mygit/datasciencecoursera/Getting And Cleaning the Data/Week3/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt",header=F)
+subject_observation_test <- read.table("./UCI HAR Dataset/test/subject_test.txt",header=F)
 names(subject_observation_test) <- c("subject_id")
 
 ### Reading variable names from features.txt and performing cleaning up. Various sorts of clean up were applied to get the meaningful variable names. Variables names were made more meaningful and in english like languages.
-features <- read.table("C:/mygit/datasciencecoursera/Getting And Cleaning the Data/Week3/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/features.txt",header=F)
+features <- read.table("./UCI HAR Dataset/features.txt",header=F)
 names(features) <- c("id","features_name")
 dim(features)
 
@@ -56,13 +56,13 @@ features$features_name <- gsub("Freq_Domain_SigBody","Freq_Domain_Sig_Body",feat
 features$features_name <- gsub("GyrometerMag","Gyrometer_Magnitude",features$features_name)
 features_name_vec <- features[,2]
 ### Reading the training set file. This file contains the observations and their measures. Added cleaned up column names to the record. There are  561 records in the files.
-X_train <- read.table("X_train.txt",header=F)
+X_train <- read.table("./UCI HAR Dataset/train/X_train.txt",header=F)
 dim(X_train)
 length(features_name_vec)
 names(X_train) <- features_name_vec
 
 ### Reading the test set file. This file contains the observations and their measures. Added cleaned up column names to the record. There are  561 records in the files.
-X_test <- read.table("C:/mygit/datasciencecoursera/Getting And Cleaning the Data/Week3/getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt",header=F)
+X_test <- read.table("./UCI HAR Dataset/test/X_test.txt",header=F)
 dim(X_test)
 
 length(features_name_vec)
