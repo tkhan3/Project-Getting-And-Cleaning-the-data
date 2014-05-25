@@ -55,6 +55,8 @@ The dataset includes the following files:
 
  Save the data frame with the mean values of columns having names mean and std for all the activities pefromed by each subject.
 
+*  tindy_data.txt: Contains cleanned data. File contains record for each subject and all the activities performed by the subject. Resulting column contains mean of different measures containing mean and standrd deviation.
+
 * 'features_info.txt': Shows information about the variables used on the feature vector.
 
 * 'features.txt': List of all features.
