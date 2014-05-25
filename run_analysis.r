@@ -98,4 +98,5 @@ calculate.mean.std.df <- data.frame(temp[,c(1,2,89)],temp[,3:88])
 
 ## Save the data frame with the mean values of columns having names mean and std for all the activities pefromed by each subject.
 write.table(calculate.mean.std.df,file="result_submit.csv",sep=",",col.names=T,row.names=F)
+write.table(calculate.mean.std.df,file="tidy_data.txt",sep=",",col.names=T,row.names=F)
 ##write.table(subject_observation_df,file="result.csv",sep=",",col.names=T,row.names=F)
